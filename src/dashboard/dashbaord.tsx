@@ -1,10 +1,15 @@
+import { useChangeLanguage } from "../hooks/useChangeLanguage";
 type DashbaordProps = {
   children?: React.ReactNode;
 };
 
 export default function Dashbaord({ children }: DashbaordProps) {
+  const { i18n } = useChangeLanguage();
   return (
-    <div className="flex items-center w-full h-full ">
+    <div
+      style={{ direction: i18n.language === "en" ? "ltr" : "rtl" }}
+      className="flex items-center w-full h-full "
+    >
       <div className="flex flex-col w-full h-full">
         <div className="w-full h-32 border border-sky-900">Header</div>
         <div className="w-full h-full border border-sky-900">{children}</div>
