@@ -1,3 +1,6 @@
+import { RouterProvider } from "react-router";
+import router from "./router/router";
+
 export default function App() {
-  return <div>Welcom To Panel Admins Project</div>;
+  return <RouterProvider router={router} />;
 }
