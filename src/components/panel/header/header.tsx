@@ -31,6 +31,11 @@ const Header: React.FC = () => {
       </div>
 
       <div className="flex items-center gap-4 text-gray-600">
+        <input
+          type="text"
+          placeholder=" . . . Search"
+          className="px-2 py-1 border rounded-xl border-gray-300 text-left"
+        />
         <span className="cursor-pointer">🌙</span>
         <Icons.Mail className="w-5 h-5 cursor-pointer" />
         <Icons.MessageSquare className="w-5 h-5 cursor-pointer" />
