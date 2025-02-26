@@ -5,22 +5,13 @@ import UserProfile from "./user-profile/UserProfile";
 const Header: React.FC = () => {
   return (
     <header className="flex items-center justify-between px-6 py-3 bg-white shadow-sm h-full">
-
-      <div className="flex items-center gap-4 text-gray-600">
-        <Icons.Mail className="w-5 h-5 cursor-pointer" />
-        <Icons.MessageSquare className="w-5 h-5 cursor-pointer" />
-        <Icons.CheckSquare className="w-5 h-5 cursor-pointer" />
-        <Icons.Calendar className="w-5 h-5 cursor-pointer" />
-        <Icons.Star className="w-5 h-5 text-yellow-500 cursor-pointer" />
-      </div>
-
       <div className="flex items-center gap-4">
-
         <div className="flex items-center gap-2 text-gray-700">
+          <UserProfile role="admin" avatar="user.jpg" />
+
           <span className="flex items-center gap-1 cursor-pointer">
-             English
+            English
           </span>
-          <span className="cursor-pointer">🌙</span>
         </div>
 
         <div className="flex items-center gap-4 relative">
@@ -37,8 +28,15 @@ const Header: React.FC = () => {
             </span>
           </div>
         </div>
+      </div>
 
-        <UserProfile name="johndoe" role="admin" avatar="/path-to-avatar.jpg" />
+      <div className="flex items-center gap-4 text-gray-600">
+        <span className="cursor-pointer">🌙</span>
+        <Icons.Mail className="w-5 h-5 cursor-pointer" />
+        <Icons.MessageSquare className="w-5 h-5 cursor-pointer" />
+        <Icons.CheckSquare className="w-5 h-5 cursor-pointer" />
+        <Icons.Calendar className="w-5 h-5 cursor-pointer" />
+        <Icons.Star className="w-5 h-5 text-yellow-500 cursor-pointer" />
       </div>
     </header>
   );
