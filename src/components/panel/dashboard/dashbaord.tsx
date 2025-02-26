@@ -13,7 +13,7 @@ export default function Dashbaord({ children }: DashbaordProps) {
       className="flex items-center w-full h-full "
     >
       <div className="flex flex-col w-full h-full">
-        <div className="w-full h-32 border border-sky-900">
+        <div className="w-full h-32">
           <Header />
         </div>
         <div className="w-full h-full">{children}</div>
