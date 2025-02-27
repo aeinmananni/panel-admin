@@ -1,7 +1,9 @@
 import { NavLink, NavLinkProps } from "react-router";
 
-type LinkProps = {} & NavLinkProps;
+type LinkProps = {
+  children?: React.ReactNode;
+} & NavLinkProps;
 
-export default function Link({ ...props }: LinkProps) {
-  return <NavLink {...props}></NavLink>;
+export default function Link({ children, ...props }: LinkProps) {
+  return <NavLink {...props}>{children}</NavLink>;
 }
