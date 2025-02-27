@@ -1,4 +1,4 @@
-import { Pin, BookOpenCheck } from "./icon";
+import { Pin, BookOpenCheck } from "../../icons/icon";
 import { usePanelAdminStore } from "../../../../../store";
 export default function Header() {
   const currentColor = usePanelAdminStore((s) => s.currentColor);
@@ -8,7 +8,7 @@ export default function Header() {
       style={{
         boxShadow: isScroll ? `0px 19px 20px  white` : "0px 2px 2px  white",
       }}
-      className="flex overflow-hidden z-20 h-24 items-center justify-between transition-all duration-300    p-2"
+      className="flex overflow-hidden z-20 h-24 items-center justify-between transition-all duration-300 "
     >
       <Pin size={20} color={currentColor} cursor={"pointer"} />
       <div className="flex items-center gap-2">
