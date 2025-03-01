@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icons } from "./Icons/Icons";
 import UserProfile from "./user-profile/UserProfile";
 import ChangeLanguage from "../../language/languages";
@@ -8,16 +8,29 @@ const NotificationIcon: React.FC<NotificationIconProps> = ({
   Icon,
   count,
   color,
-}) => (
-  <div className="relative cursor-pointer">
-    <Icon className={`w-5 h-5 text-${color}`} />
-    {count > 0 && (
-      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-        {count}
-      </span>
-    )}
-  </div>
-);
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      className="relative cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <Icon className={`w-5 h-5 text-${color}`} />
+      {count > 0 && (
+        <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+          {count}
+        </span>
+      )}
+      {isHovered && (
+        <div className="absolute right-0 mt-2 w-52 h-12 bg-red shadow-md rounded-md p-2">
+            <p className="text-gray-700 "> سبد خرید خالیست ☹️</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Header: React.FC = () => {
   return (
@@ -40,12 +53,10 @@ const Header: React.FC = () => {
         <span className="cursor-pointer">🌙</span>
         <NotificationIcon
           Icon={Icons.ShoppingCart}
-          count={5}
+          count={0}
           color="blue-600"
         />
         <Icons.Mail className="w-5 h-5 cursor-pointer" />
-        {/* <Icons.MessageSquare className="w-5 h-5 cursor-pointer" /> */}
-        {/* <Icons.CheckSquare className="w-5 h-5 cursor-pointer" /> */}
         <Icons.Calendar className="w-5 h-5 cursor-pointer" />
         <Icons.Star className="w-5 h-5 text-yellow-500 cursor-pointer" />
       </div>
