@@ -1,11 +1,16 @@
 import { RouteObject, createBrowserRouter } from "react-router";
 import { Home } from "../home";
-
+import Test from "../components/test/test";
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <Home />,
-    children: [],
+    children: [
+      {
+        path: "",
+        element: <Test />,
+      },
+    ],
   },
   {
     path: "*",
