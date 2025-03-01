@@ -3,26 +3,18 @@
 @tailwind utilities;
 
 
-.scrollbar {
-    @apply overflow-y-auto;
-  }
-  
+@layer utilities {
   .scrollbar::-webkit-scrollbar {
-    width: 0;
+    width: 8px;
   }
-  
-  .scrollbar::-webkit-scrollbar-track {
-    @apply rounded-full bg-white dark:bg-neutral-700;
-  }
-  
   .scrollbar::-webkit-scrollbar-thumb {
-    @apply rounded-full bg-gray-300 dark:bg-neutral-500;
+    background: rgb(159, 150, 150); 
+    border-radius: 10px;
   }
-  
-  .scrollbar:hover::-webkit-scrollbar {
-    width: 10px;
+  .scrollbar::-webkit-scrollbar-track {
+    background: #e5e7eb; 
   }
-  
+}
 
   .Button{
      @apply px-4 py-2 rounded-md flex justify-center items-center
