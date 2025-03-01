@@ -1,21 +1,15 @@
 import React from "react";
+import { UserProfileProps } from "../model";
 
-interface UserProfileProps {
-  name: string;
-  role: string;
-  avatar: string;
-}
-
-const UserProfile: React.FC<UserProfileProps> = ({ name, role, avatar }) => {
+const UserProfile: React.FC<UserProfileProps> = ({ role, avatar, name }) => {
   return (
-    <div className="flex items-center gap-2">
-      <span className="text-gray-800 text-sm">{name}</span>
-      <span className="text-gray-500 text-xs">{role}</span>
-      <img
-        src={avatar}
-        alt="User Avatar"
-        className="w-8 h-8 rounded-full border"
-      />
+    <div className="flex items-center gap-3">
+      <img src={avatar} alt={name} className="w-12 h-12 rounded-full" />
+
+      <div className="flex flex-col">
+        <span className="text-lg font-semibold">{name}</span>
+        <span className="text-sm text-gray-500">{role}</span>{" "}
+      </div>
     </div>
   );
 };

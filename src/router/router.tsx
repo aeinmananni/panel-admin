@@ -1,6 +1,6 @@
 import { RouteObject, createBrowserRouter } from "react-router";
 import { Home } from "../home";
-import Test from "../components/test/test";
+import Test from "../components/language/Languages";
 const routes: RouteObject[] = [
   {
     path: "/",
