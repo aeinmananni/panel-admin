@@ -11,4 +11,3 @@ export type  UserProfileProps  ={
   avatar: string;
   name: string;
 }
-
