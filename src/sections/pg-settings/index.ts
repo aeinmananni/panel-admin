@@ -1,0 +1,1 @@
+export {default as PgSettings} from './pg-settings';

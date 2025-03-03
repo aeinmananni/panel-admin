@@ -1,0 +1,1 @@
+export {default as GenerateInvoice} from "./generate-invoice";

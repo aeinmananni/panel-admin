@@ -1,0 +1,1 @@
+export {default as SalesReports} from './sales-reports';

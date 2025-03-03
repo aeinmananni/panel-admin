@@ -1,9 +1,11 @@
-import { Item } from "./item";
+import { ClassificationItem } from "./classification-item";
 import { useScrollTop } from "../../../../../hooks/useScrollTop";
 import { classificationItem, groupingItem } from "../../data";
-
+import { GroupingItem } from "./grouping-item";
+import { useAutoOpenMenuOnRoute } from "../../../../../hooks/useAutoOpenMenuOnRoute";
 export default function Menus() {
   const { ref } = useScrollTop();
+  const { openItems } = useAutoOpenMenuOnRoute();
   return (
     <div
       ref={ref}
@@ -11,15 +13,26 @@ export default function Menus() {
     >
       <div className="w-max h-max p-1 flex flex-col gap-1 ">
         {classificationItem.map((cl, index) => (
-          <Item key={index} title={cl.classificationName} icon={cl.icon}>
-            {groupingItem.map((gr, index) => (
-              <>
-                {cl.classificationId === gr.classificationId && (
-                  <Item key={index} title={gr.groupingName} />
-                )}
-              </>
-            ))}
-          </Item>
+          <ClassificationItem
+            key={index}
+            title={cl.classificationName}
+            icon={cl.icon}
+            isOpen={openItems[index]}
+          >
+            <div className="flex flex-col w-full gap-1 py-2">
+              {groupingItem.map((gr, index) => (
+                <>
+                  {cl.classificationId === gr.classificationId && (
+                    <GroupingItem
+                      key={index}
+                      title={gr.groupingName}
+                      to={gr.link}
+                    />
+                  )}
+                </>
+              ))}
+            </div>
+          </ClassificationItem>
         ))}
       </div>
     </div>
