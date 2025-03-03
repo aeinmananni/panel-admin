@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 
+:root{
+  --primary-color: #7367f0;
+}
+
 @layer utilities {
   .scrollbar::-webkit-scrollbar {
     width: 8px;
@@ -19,3 +23,9 @@
   .Button{
      @apply px-4 py-2 rounded-md flex justify-center items-center
   }
+
+  .MenuItemsStyle {
+    @apply flex items-center overflow-hidden justify-between gap-2 px-2 py-3  duration-300 rounded-md cursor-pointer 
+  }
+
+  

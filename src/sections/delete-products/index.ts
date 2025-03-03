@@ -1,0 +1,1 @@
+export {default as DeleteProducts} from './delete-products';

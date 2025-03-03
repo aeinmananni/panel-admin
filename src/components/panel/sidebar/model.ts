@@ -8,7 +8,8 @@ export type ClassificationType = {
 
 
 export type GroupingType = {
-    groupingId:number,
-    groupingName:string,
-    classificationId:number
+    groupingId:number;
+    groupingName:string;
+    classificationId:number;
+    link?:string
 }
