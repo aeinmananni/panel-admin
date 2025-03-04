@@ -1,0 +1,1 @@
+export {default as ManageComments} from './manage-comments';

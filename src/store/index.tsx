@@ -14,6 +14,7 @@ export const usePanelAdminStore = create<StoreType>()((set) => ({
     set(() => ({
       currentColor: value,
     }));
+    document.documentElement.style.setProperty("--primary-color", value);
     localStorage.setItem("currentColor", value);
   },
   setIsScroll: (v: boolean) => {

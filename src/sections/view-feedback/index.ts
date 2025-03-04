@@ -1,0 +1,1 @@
+export {default as ViewFeedback} from './view-feedback';

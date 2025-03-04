@@ -1,14 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from "react";
 import { useChangeLanguage } from "../../hooks/useChangeLanguage";
 import usa from "../../../public/usa.jpg";
 import iran from "../../../public/iran.jpg";
 import arabic from "../../../public/arabic.jpg";
 
-
 const languageOptions = [
-  { label: "English" , value: "en", flag: usa },
-  { label: "فارسی" , value: "fa", flag: iran },
-  {  label: "العربية" , value: "ar", flag: arabic },
+  { label: "English", value: "en", flag: usa },
+  { label: "فارسی", value: "fa", flag: iran },
+  { label: "العربية", value: "ar", flag: arabic },
 ];
 
 const ChangeLanguage: React.FC = () => {
@@ -20,7 +20,7 @@ const ChangeLanguage: React.FC = () => {
   const handleLanguageChange = (option: any) => {
     setSelectedLanguage(option);
     changeLanguage(option.value);
-    setIsOpen(false); 
+    setIsOpen(false);
   };
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
