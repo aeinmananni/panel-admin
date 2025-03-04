@@ -3,11 +3,17 @@ import { Icons } from "./Icons/Icons";
 import UserProfile from "./user-profile/UserProfile";
 import ChangeLanguage from "../../language/Languages";
 import { NotificationIconProps } from "./model";
+import MultiLanguageCalendar from "./calender/calender";
 
-const NotificationIcon: React.FC<NotificationIconProps> = ({
+interface CustomNotificationIconProps extends NotificationIconProps {
+  message?: string;
+}
+
+const NotificationIcon: React.FC<CustomNotificationIconProps> = ({
   Icon,
   count,
   color,
+  message,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -25,7 +31,7 @@ const NotificationIcon: React.FC<NotificationIconProps> = ({
       )}
       {isHovered && (
         <div className="absolute right-0 mt-2 w-44 h-12 bg-red shadow-md rounded-md p-2 z-10">
-            <p className="text-gray-700 "> سبد خرید خالیست  . . . </p>
+          <p className="text-gray-700 ">{message || "سبد خرید خالیست . . ."}</p>
         </div>
       )}
     </div>
@@ -33,11 +39,13 @@ const NotificationIcon: React.FC<NotificationIconProps> = ({
 };
 
 const Header: React.FC = () => {
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+
   return (
-    <header className="flex items-center justify-between px-6 py-3 bg-white shadow-sm h-full">
-      <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 text-gray-700">
-          <UserProfile role="admin" avatar="user.jpg" name="John Doe" />
+    <header className="flex flex-col md:flex-row items-center justify-between px-6 py-3 bg-white shadow-sm h-full">
+      <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
+        <div className="flex items-center gap-2 text-gray-700 sm:font-semibold">
+          <UserProfile role="admin" avatar="user.jpg" name="John Doe"/>
           <ChangeLanguage />
           <input
             type="text"
@@ -49,17 +57,32 @@ const Header: React.FC = () => {
           {/* <NotificationIcon Icon={Icons.Bell} count={5} color="red-500" /> */}
         </div>
       </div>
-      <div className="flex items-center gap-4 text-gray-600">
+      <div className="flex items-center gap-4 text-gray-600 relative mt-4 md:mt-0">
         <span className="cursor-pointer">🌙</span>
         <NotificationIcon
           Icon={Icons.ShoppingCart}
           count={0}
           color="blue-600"
         />
-        <Icons.Mail className="w-5 h-5 cursor-pointer" />
-        <Icons.Calendar className="w-5 h-5 cursor-pointer" />
+        <NotificationIcon
+          Icon={Icons.Mail}
+          count={0}
+          color="gray-600"
+          message="پیامی ندارید . . . "
+        />
+        <div className="relative">
+          <Icons.Calendar
+            className="w-5 h-5 cursor-pointer"
+            onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+          />
+          {isCalendarOpen && (
+            <div className="absolute right-0 mt-2 bg-white shadow-md rounded-md p-2 z-10">
+              <MultiLanguageCalendar />
+            </div>
+          )}
+        </div>
         {/* <MultiDatePickerComponent w-5 h-5 cursor-pointer /> */}
-        <Icons.Star className="w-5 h-5 text-yellow-500 cursor-pointer" />
+        {/* <Icons.Star className="w-5 h-5 text-yellow-500 cursor-pointer" /> */}
       </div>
     </header>
   );
